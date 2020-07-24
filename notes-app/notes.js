@@ -55,8 +55,17 @@ const removeNotes = (title) => {
     saveNotes(duplicateNotes)
 }
 
+const listNotes = () => {
+    const notes = loadNotes()
+    console.log(chalk.yellow("Your Notes"))
+    for(note of notes){
+        console.log(note.title)
+    }
+}
+
 module.exports = {
     getNotes:getNotes,
     addNote:addNote,
-    removeNotes:removeNotes
+    removeNotes:removeNotes,
+    listNotes:listNotes
 }
