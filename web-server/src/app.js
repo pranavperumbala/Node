@@ -39,6 +39,33 @@ app.get('/about', (req,res) => {
     })
 })
 
+app.get('/weather', (req,res) => {
+    if(!req.query.address){
+        res.send({
+            error:'Please provide an address'
+        })
+    }else{
+        res.send({
+            forecast:'It is snowing',
+            address:req.query.address
+        })
+    }
+   
+})
+
+app.get('/products', (req,res) => {
+    if(!req.query.search){
+        res.send({
+            error:'You must provide a search item'
+        })
+    }else{
+        res.send({
+            products:[]
+        })
+    }
+    
+})
+
 app.get('/help/*', (req,res) => {
     res.render('404', {
         errorMessage:'Help article not found',
